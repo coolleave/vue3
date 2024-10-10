@@ -39,6 +39,15 @@ const onEdit = (row)=>{
 }
 
 
+// pinia 状态管理
+
+import {useCounterStore} from '@/stores/counter.js'
+
+// 实例化对象
+
+const CounterStore = useCounterStore()
+console.log(CounterStore);
+
 </script>
 
 <template>
@@ -56,6 +65,8 @@ const onEdit = (row)=>{
     </el-table>
   </div>
   <Edit ref="open" @getList="getList"/>
+
+  <el-button @click="CounterStore.increment">{{ CounterStore.count }}</el-button>
 </template>
 
 <style scoped>
