@@ -1,6 +1,13 @@
 <script setup>
 
-
+import {getCategory} from '@/apis/apiTest'
+// 测试api能否通过
+getCategory().then(
+  res=>{
+    console.log(res);
+    
+  }
+)
 
 </script>
 
