@@ -9,6 +9,9 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
+
+
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -23,12 +26,21 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      // 1.在element-plus配置中导入sass文件类型
+      resolvers: [ElementPlusResolver({ importStyle: "sass" })],
     }),
   ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      // 导入scss预编译程序
+      scss: {
+        additionalData: `@use "@/styles/element/index.scss" as *;`,
+      },
     },
   },
 })

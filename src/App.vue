@@ -14,6 +14,8 @@
         sub-title="Please follow the instructions"
       >
       </el-result>
+
+      <el-button type="primary">按钮</el-button>
     </el-col>
   </el-row>
 
